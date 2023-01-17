@@ -1,4 +1,4 @@
-import clientsProfits from './modules/clientsProfits'
+import profitsSlider from './modules/profitsSlider'
 
 
-clientsProfits()
+profitsSlider()
