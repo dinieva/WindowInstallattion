@@ -13,6 +13,7 @@ const benefitsSlider = () => {
     sliderBlock.length = '';
     const track = document.createElement('div'); //блок, который будет перемещаться.
     track.style.display = 'flex';
+    track.style.transition = 'ease .2s';
     sliderBlock.append(track);
 
     sliderBlock.style.overflow = 'hidden';
