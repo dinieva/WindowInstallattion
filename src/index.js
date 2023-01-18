@@ -1,4 +1,5 @@
-import clientsProfits from './modules/clientsProfits'
+import benefitsSlider from './modules/benefitsSlider'
+import ourServices from './modules/ourServices'
 
-
-clientsProfits()
+benefitsSlider()
+ourServices()
