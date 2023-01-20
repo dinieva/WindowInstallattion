@@ -69,7 +69,7 @@ const sendForm = () => {
                 login: userName,
                 phone: userPhone
             }
-            console.log(user);
+
             statusBlock.textContent = loadText
             form.append(statusBlock)
 

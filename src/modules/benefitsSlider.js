@@ -88,6 +88,7 @@ const benefitsSlider = () => {
     }
 
     window.addEventListener('resize', (e) => {
+        e.preventDefault();
         benefitsSlider();
     });
 
