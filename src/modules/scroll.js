@@ -18,6 +18,7 @@ const scroll = () => {
             window.scrollTo(0, scrolled)
             scrolled = scrolled - 400 //  скорость прокрутки
             timer = setTimeout(scrollToTop, 100)
+            arrowToUp.style.display = 'none'
         }
         else {
             clearTimeout(timer)
