@@ -1,12 +1,22 @@
 const sendForm = () => {
     const forms = document.querySelectorAll('.order-form.rf');
     const statusBlock = document.createElement('div');
+    //калькулятор для обнуления полей после отправки
+    const calcType = document.getElementById('calc-type')  //*обязательные поля
+    const calcTypeMaterial = document.getElementById('calc-type-material')
+    const calcSquare = document.getElementById('calc-input') //*обязательные поля, вводить только цифры
+    const total = document.getElementById('calc-total');
+
     const loadText = 'Загрузка';
     const errorText = 'Ошибка';
     const successText = 'Спасибо! Наш менеджер с вами свяжется';
     let userName;
     let userPhone;
+    let totalValue = 0
 
+    if (total) {
+        totalValue += +total.value
+    }
     forms.forEach(form => {
         form.addEventListener('click', (e) => {
             if (e.target.name === 'fio') {
@@ -36,15 +46,15 @@ const sendForm = () => {
     })
 
     const validate = (list) => {
-        let success;
+        let success = true;
 
         list.forEach(input => {
             if (input.type == 'text') {
                 if (!input.classList.contains('success')) {
                     success = false
-                } else {
+                } /* else {
                     success = true
-                }
+                } */
             }
         })
         return success
@@ -65,9 +75,14 @@ const sendForm = () => {
             e.preventDefault()
             const formElements = form.querySelectorAll('input');
 
+            if (total) {
+                totalValue += +total.value
+            }
+
             const user = {
                 login: userName,
-                phone: userPhone
+                phone: userPhone,
+                totalValue: totalValue
             }
 
             statusBlock.textContent = loadText
@@ -78,8 +93,16 @@ const sendForm = () => {
                     .then(data => {
                         statusBlock.textContent = successText
 
+                        if (calcType && calcTypeMaterial && calcSquare && total) {
+                            calcType.selectedIndex = 0
+                            calcTypeMaterial.selectedIndex = 0
+                            calcSquare.value = ''
+                            total.value = ''
+                        }
+
                         formElements.forEach(input => {
                             input.value = ''
+                            totalValue = 0
                         })
                     })
                     .catch(error => {

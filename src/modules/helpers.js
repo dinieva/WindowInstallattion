@@ -18,5 +18,18 @@ const animate = ({ timing, draw, duration }) => { // передается объ
     });
 }
 
+const animateCalc = (callback, from, to, duration) => {
+    let start = null, // сохранить время начала
+        animate = timestamp => {
+            start = start || timestamp;
+            let progress = Math.min((timestamp - start) / duration, 1);
+            callback(progress * (to - from) + from);
+            if (progress < 1) {
+                window.requestAnimationFrame(animate);
+            }
+        };
+    window.requestAnimationFrame(animate);
+}
 
-export { animate }
+
+export { animate, animateCalc }
