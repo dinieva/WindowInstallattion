@@ -1,7 +1,9 @@
+import { blockScroll } from './helpers'
+import { unblockScroll } from './helpers'
+
 const documents = () => {
     const sertificates = document.querySelectorAll('.sertificate-document')
     const overlays = document.querySelectorAll('.document-overlay')
-    const overlayforModal = document.querySelector('.overlay')
 
     sertificates.forEach(image => {
         image.addEventListener('mouseover', (e) => {
@@ -15,17 +17,16 @@ const documents = () => {
     })
 
     const modalImage = (image) => {
-        /*  overlayforModal.style.display = 'block' */
         let modal = document.querySelector('.modal');
         let modalImg = document.querySelector('.modal-content');
         modal.style.display = "block";
         modalImg.src = image.src;
-        modalImg.style.height = 'auto';
-        console.log(modalImg.style.height);
+        blockScroll()
 
         let span = document.getElementsByClassName("close")[0];
         span.onclick = function () {
             modal.style.display = "none";
+            unblockScroll()
         }
     }
     overlays.forEach(overlay => {
@@ -36,6 +37,10 @@ const documents = () => {
 
         })
     })
+
+    window.addEventListener('scroll', () => {
+        document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+    });
 }
 
 export default documents

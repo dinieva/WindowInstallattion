@@ -1,9 +1,9 @@
-const benefitsSlider = () => {
+/* const benefitsSlider = () => {
 
-    const sliderBlock = document.querySelector('.benefits-wrap'); //контейнер, для отображения 
+    const sliderBlock = document.querySelector('.benefits-wrap'); //контейнер, для отображения
     const slides = document.querySelectorAll('.benefits__item');
     const buttonsBlock = document.querySelector('.benefits-arrows');
-    let windowOuterWidth = window.outerWidth;  //размере внешнего окна 
+    let windowOuterWidth = window.outerWidth;  //размере внешнего окна
     let slidetoShow;// видимое количество изображений
     let slidesToScroll; // сколько слайдев прибавлять
     let itemWidth;
@@ -87,11 +87,10 @@ const benefitsSlider = () => {
         })
     }
 
-    /* window.addEventListener('resize', (e) => {
+    window.addEventListener('resize', (e) => {
         e.preventDefault();
         //benefitsSlider();
-    }); */
+    });
+} */
 
-}
-
-export default benefitsSlider
+//export default benefitsSlider

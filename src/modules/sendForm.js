@@ -9,15 +9,12 @@ const sendForm = () => {
     const total = document.getElementById('calc-total');
 
     const loadText = 'Загрузка';
-    const errorText = 'Ошибка';
+    const errorText = 'Ошибка.';
+    const errorText2 = 'Ошибка. Пожалуйста, проверьте введенные данные!';
     const successText = 'Спасибо! Наш менеджер с вами свяжется';
     let userName;
     let userPhone;
-    let totalValue = 0
 
-    if (total) {
-        totalValue += +total.value
-    }
     forms.forEach(form => {
         form.addEventListener('click', (e) => {
             if (e.target.name === 'fio') {
@@ -76,16 +73,15 @@ const sendForm = () => {
             e.preventDefault()
             const formElements = form.querySelectorAll('input');
 
-            if (total) {
-                totalValue += +total.value
-            }
-
-            const user = {
+            let user = {
                 login: userName,
                 phone: userPhone,
-                totalValue: totalValue
             }
 
+            if (total && total.value != '' && total.value > 0) {
+                let totalValue = total.value
+                user.totalValue = totalValue
+            }
             statusBlock.textContent = loadText
             form.append(statusBlock)
 
@@ -101,18 +97,27 @@ const sendForm = () => {
                             total.value = ''
                         }
 
-                        formElements.forEach(input => {
-                            input.value = ''
-                            totalValue = 0
+                        formElements.forEach((input) => {
+                            input.value = '';
+                            input.style.borderColor = '#dfdfdf';
                         })
                     })
                     .catch(error => {
-                        statusBlock.textContent = errorText
+                        statusBlock.textContent = errorText;
                         console.log(error);
                     })
             } else {
-                alert('Данные не валидны!!!')
-                statusBlock.textContent = errorText
+                formElements.forEach(input => {
+                    if (input.type == 'text') {
+                        if (!input.classList.contains('success')) {
+                            input.style.borderColor = 'red';
+                        } /* else {
+                            success = true
+                        } */
+                    }
+                })
+
+                statusBlock.textContent = errorText2;
             }
         })
     })

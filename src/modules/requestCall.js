@@ -1,4 +1,6 @@
 import { animate } from './helpers'
+import { blockScroll } from './helpers'
+import { unblockScroll } from './helpers'
 
 const requestCall = () => {
     const btn = document.querySelector('.requestCall')
@@ -19,6 +21,7 @@ const requestCall = () => {
                 draw(progress) {
                     overlay.style.display = 'block'
                     modal.style.display = 'block';
+                    blockScroll()
                 }
             });
         }, 300);
@@ -34,6 +37,7 @@ const requestCall = () => {
                 draw(progress) {
                     overlay.style.display = 'none'
                     modal.style.display = 'none'
+                    unblockScroll()
                 }
             });
         }, 500);
