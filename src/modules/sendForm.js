@@ -1,5 +1,6 @@
 const sendForm = () => {
-    const forms = document.querySelectorAll('.order-form.rf');
+    //const forms = document.querySelectorAll('.order-form.rf');
+    const forms = document.querySelectorAll('form');
     const statusBlock = document.createElement('div');
     //калькулятор для обнуления полей после отправки
     const calcType = document.getElementById('calc-type')  //*обязательные поля
