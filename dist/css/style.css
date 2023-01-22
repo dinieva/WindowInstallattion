@@ -1984,7 +1984,7 @@ input.error {
   /* Stay in place */
   z-index: 1;
   /* Sit on top */
-  padding-top: 100px;
+  padding-top: 10px;
   /* Location of the box */
   left: 0;
   top: 0;
@@ -2003,6 +2003,7 @@ input.error {
 .modal-content {
   margin: auto;
   display: block;
+  height: 100%;
   width: 80%;
   max-width: 700px;
 }

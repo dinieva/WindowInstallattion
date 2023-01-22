@@ -1,9 +1,8 @@
 const scroll = () => {
     const arrowToUp = document.querySelector('.smooth-scroll ')
     const firstSection = document.getElementById('offer')
+    const header = document.getElementById('header')
     let sectionHight = firstSection.clientHeight
-    let scrolled
-    let timer
 
     arrowToUp.style.display = 'none'
 
@@ -13,23 +12,10 @@ const scroll = () => {
         }
     })
 
-    const scrollToTop = () => {
-        if (scrolled > 0) {
-            window.scrollTo(0, scrolled)
-            scrolled = scrolled - 200 //  скорость прокрутки
-            timer = setTimeout(scrollToTop, 100)
-            arrowToUp.style.display = 'none'
-        }
-        else {
-            clearTimeout(timer)
-            window.scrollTo(0, 0)
-        }
-    }
 
     arrowToUp.addEventListener('click', () => {
-        scrolled = window.pageYOffset
-        //window.scrollTo(0, 0); //резкая прокрутка
-        scrollToTop()
+        header.scrollIntoView(true)
+        arrowToUp.style.display = 'none'
     })
 }
 
