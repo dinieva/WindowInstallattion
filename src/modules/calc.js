@@ -13,10 +13,7 @@ const calc = (price = 100) => {
         const calcSquareValue = +calcSquare.value
         let totalValue = 0
 
-        if (!calcTypeMaterialValue) {
-            calcTypeMaterialValue = 1
-        }
-        if (calcType.value && calcSquare.value) {
+        if (calcType.value && calcSquare.value && calcTypeMaterialValue) {
             totalValue = price * calcTypeValue * calcSquareValue * calcTypeMaterialValue;
         } else {
             totalValue = 0
