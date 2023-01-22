@@ -87,10 +87,10 @@ const benefitsSlider = () => {
         })
     }
 
-    window.addEventListener('resize', (e) => {
+    /* window.addEventListener('resize', (e) => {
         e.preventDefault();
-        benefitsSlider();
-    });
+        //benefitsSlider();
+    }); */
 
 }
 
