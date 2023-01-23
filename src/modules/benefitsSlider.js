@@ -1,4 +1,4 @@
-/* const benefitsSlider = () => {
+const benefitsSlider = () => {
 
     const sliderBlock = document.querySelector('.benefits-wrap'); //контейнер, для отображения
     const slides = document.querySelectorAll('.benefits__item');
@@ -44,6 +44,7 @@
                 if (position >= 0) {
                     const itemsLeft = slides.length - (Math.abs(position) + slidetoShow * itemWidth) / itemWidth;
                     position -= itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+
                     setPosition();
                 } else {
                     const itemsLeft = Math.abs(position) / itemWidth;
@@ -91,6 +92,6 @@
         e.preventDefault();
         //benefitsSlider();
     });
-} */
+}
 
-//export default benefitsSlider
+export default benefitsSlider

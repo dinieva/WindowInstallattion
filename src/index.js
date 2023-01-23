@@ -1,4 +1,5 @@
 import requestCall from './modules/requestCall'
+import benefitsSlider from './modules/benefitsSlider'
 import { benefitsSliderFunc } from './modules/swiperSliders'
 import { ourServicesFunc } from './modules/swiperSliders'
 import requireMaster from './modules/requireMaster'
@@ -11,6 +12,7 @@ import activeMenu from './modules/menuBurger'
 
 
 requestCall()
+//benefitsSlider()
 benefitsSliderFunc()
 ourServicesFunc()
 requireMaster()

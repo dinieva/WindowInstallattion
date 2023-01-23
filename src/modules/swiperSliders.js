@@ -1,14 +1,14 @@
 import Swiper, { Navigation, Autoplay } from 'swiper';
 
 export const ourServicesFunc = () => {
-    var swiper = new Swiper(".swiper", {
+    var swiper = new Swiper(".swiper-service", {
         modules: [Navigation, Autoplay],
         slidesPerView: 1,
         spaceBetween: 30,
         loop: true,
-        autoplay: {
+        /* autoplay: {
             delay: 2000,
-        },
+        }, */
         navigation: {
             nextEl: ".services__arrow--right",
             prevEl: ".services__arrow--left",
@@ -40,13 +40,8 @@ export const benefitsSliderFunc = () => {
         breakpoints: {
             576: {
                 slidesPerView: 3,
+                spaceBetween: 30
             },
-            /* 768: {
-                slidesPerView: 3,
-            },
-            991: {
-                slidesPerView: 3,
-            }, */
         },
     });
     //swiper.loopDestroy();
