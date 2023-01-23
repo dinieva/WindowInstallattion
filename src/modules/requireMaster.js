@@ -2,15 +2,16 @@ import { animate } from './helpers'
 
 const requireMaster = () => {
     const body = document.body;
-    const btns = document.querySelectorAll('.service-button')
+    //const btns = document.querySelectorAll('.service-button')
     const modal = document.querySelector('.services-modal')
     const overlay = document.querySelector('.overlay')
     const closeBtn = modal.querySelector('.services-modal__close ')
+    const serviceBlock = document.querySelectorAll('.service-block')
     window.addEventListener('scroll', () => {
         document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
     });
 
-    btns.forEach(btn => {
+    /* btns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             setTimeout(() => {
@@ -21,6 +22,7 @@ const requireMaster = () => {
                     },
 
                     draw(progress) {
+                        console.log(e.target);
                         overlay.style.display = 'block'
                         modal.style.display = 'block'
                         body.style.overflowY = 'hidden';
@@ -29,7 +31,31 @@ const requireMaster = () => {
                 });
             }, 300);
         })
+    })*/
+
+    serviceBlock.forEach(block => {
+        block.addEventListener('click', (e) => {
+            if (e.target.matches('.btn')) {
+                e.preventDefault();
+                setTimeout(() => {
+                    animate({
+                        duration: 1000,
+                        timing(timeFraction) {
+                            return 1 - Math.sin(Math.acos(timeFraction));
+                        },
+
+                        draw(progress) {
+                            overlay.style.display = 'block'
+                            modal.style.display = 'block'
+                            body.style.overflowY = 'hidden';
+                            body.style.height = '100vh';
+                        }
+                    });
+                }, 300);
+            }
+        })
     })
+
     closeBtn.addEventListener('click', () => {
         setTimeout(() => {
             animate({

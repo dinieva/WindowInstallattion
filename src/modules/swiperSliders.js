@@ -6,9 +6,6 @@ export const ourServicesFunc = () => {
         slidesPerView: 1,
         spaceBetween: 30,
         loop: true,
-        /* autoplay: {
-            delay: 2000,
-        }, */
         navigation: {
             nextEl: ".services__arrow--right",
             prevEl: ".services__arrow--left",
@@ -33,6 +30,9 @@ export const benefitsSliderFunc = () => {
         slidesPerView: 1,
         spaceBetween: 30,
         loop: true,
+        autoplay: {
+            delay: 2000,
+        },
         navigation: {
             nextEl: ".benefits__arrow--right",
             prevEl: ".benefits__arrow--left",
