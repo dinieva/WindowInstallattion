@@ -1,4 +1,5 @@
 import requestCall from './modules/requestCall'
+import yourOwnPrice from './modules/yourOwnPrice'
 import benefitsSlider from './modules/benefitsSlider'
 import { benefitsSliderFunc } from './modules/swiperSliders'
 import { ourServicesFunc } from './modules/swiperSliders'
@@ -12,6 +13,7 @@ import activeMenu from './modules/menuBurger'
 
 
 requestCall()
+yourOwnPrice()
 //benefitsSlider()
 benefitsSliderFunc()
 ourServicesFunc()
