@@ -33,7 +33,6 @@ const requireMaster = () => {
         })
     })*/
 
-    console.log(serviceBlock);
     serviceBlock.forEach(block => {
         block.addEventListener('click', (e) => {
             if (e.target.matches('.btn')) {
