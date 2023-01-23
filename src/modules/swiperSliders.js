@@ -49,6 +49,6 @@ export const benefitsSliderFunc = () => {
             }, */
         },
     });
-    swiper.loopDestroy();
+    //swiper.loopDestroy();
     //swiper.loopCreate();
 }
